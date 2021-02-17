@@ -1,0 +1,54 @@
+﻿<Window x:Class="CRMOnlineStore.Views.EditCurrentProduct"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CRMOnlineStore.Views"
+        mc:Ignorable="d"
+        Title="Edit Product" Height="400" Width="300"
+        WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Text="Ente name new product:" Margin="10,20,10,5"/>
+
+            <TextBox Grid.Row="1" x:Name="FieldName"
+                     VerticalAlignment="Center" Margin="10,10,10,5"/>
+
+            <TextBlock Grid.Row="2" Text="Enter price:" Margin="10,20,10,5"/>
+
+            <TextBox Grid.Row="3" x:Name="FieldPrice"
+                      VerticalAlignment="Center" Margin="10,10,10,5"/>
+
+            <TextBlock Grid.Row="4" Text="Select subscription type:"
+                       Margin="10,20,10,5"/>
+
+            <ComboBox Grid.Row="5" x:Name="BoxSubscriptionType" 
+                      SelectionChanged="BoxSubscriptionType_SelectionChanged"
+                      VerticalAlignment="Center" Margin="10,10,10,5"/>
+
+            <TextBlock Grid.Row="6" Text="Select subscription term:"
+                       Margin="10,20,10,5"/>
+
+            <ComboBox Grid.Row="7" x:Name="BoxSubscriptionTerm"
+                      VerticalAlignment="Center" Margin="10,10,10,5"/>
+
+            <StackPanel Grid.Row="8" Orientation="Horizontal" 
+                    HorizontalAlignment="Center">
+                <Button Width="100" Height="30" Margin="10,10" Click="Button_Save">Save</Button>
+                <Button Width="100" Height="30" Margin="10,10" Click="Button_Cancel">Cancel</Button>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>

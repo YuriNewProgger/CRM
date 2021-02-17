@@ -1,0 +1,29 @@
+﻿<Window x:Class="CRMOnlineStore.EditCurrentManager"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CRMOnlineStore"
+        mc:Ignorable="d"
+        Title="Edit Manager" Height="150" Width="300"
+        WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Edit name manager:" Margin="10,10"/>
+        <TextBox Grid.Row="1" x:Name="NameField" Text="{Binding EditNameManager}"
+                 VerticalAlignment="Center" Margin="10,0"/>
+
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button Width="100" Height="30" Margin="10,0"
+                    Command="{Binding EditSelectedCurrentManager}">Save changes</Button>
+            <Button Width="100" Height="30" Margin="10,0" 
+                    Command="{Binding CloseEditManager}">Cancel</Button>
+        </StackPanel >
+
+    </Grid>
+</Window>
