@@ -150,25 +150,51 @@
             </Grid>
         </TabItem>
 
-        <TabItem x:Name="ListsField" Header="Lists">
+        <TabItem x:Name="ClientList" Header="Client List">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
                     <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
 
-                <DataGrid x:Name="DataList" AutoGenerateColumns="True"
-                          SelectedItem="{Binding SelectedProduct}"
+                <DataGrid AutoGenerateColumns="True"
+                          ItemsSource="{Binding DataForDataGrid}"
                           RowHeight="20" IsReadOnly="True" RowHeaderWidth="0">
                 </DataGrid>
 
                 <StackPanel Grid.Column="1" Width="150" Margin="10,0">
                     <TextBlock Text="Load By:" Margin="0, 10"/>
-                    <ComboBox x:Name="FilterList" SelectionChanged="Filters_SelectionDataSource"/>
+                    <ComboBox ItemsSource="{Binding ListFilter}" 
+                              SelectedItem="{Binding SelectedFilterItem}"/>
                     <TextBlock Text="Request:" Margin="0, 10"/>
-                    <TextBox x:Name="FieldRequest" />
-                    <Button x:Name="ButtonShow" Style="{StaticResource btnShow}" 
-                            Click="ButtonShow_Click"/>
+                    <TextBox Text="{Binding RequestField}" />
+                    <Button Style="{StaticResource btnShow}"
+                            Command="{Binding Show}"/>
+
+                </StackPanel>
+            </Grid>
+        </TabItem>
+
+        <TabItem x:Name="ProductList" Header="Product List">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <DataGrid AutoGenerateColumns="True"
+                          ItemsSource="{Binding Products}"
+                          RowHeight="20" IsReadOnly="True" RowHeaderWidth="0">
+                </DataGrid>
+
+                <StackPanel Grid.Column="1" Width="150" Margin="10,0">
+                    <TextBlock Text="Load By:" Margin="0, 10"/>
+                    <ComboBox ItemsSource="{Binding ListFilter}" 
+                              SelectedItem="{Binding SelectedFilterItem}"/>
+                    <TextBlock Text="Request:" Margin="0, 10"/>
+                    <TextBox Text="{Binding RequestField}" />
+                    <Button Style="{StaticResource btnShow}"
+                            Command="{Binding ShowItems}"/>
 
                 </StackPanel>
             </Grid>

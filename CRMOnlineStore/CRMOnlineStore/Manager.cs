@@ -12,7 +12,7 @@ namespace CRMOnlineStore
     using System;
     using System.Collections.Generic;
     
-    public partial class Manager
+    public partial class Manager 
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Manager()
@@ -27,5 +27,6 @@ namespace CRMOnlineStore
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Client> Clients { get; set; }
+
     }
 }

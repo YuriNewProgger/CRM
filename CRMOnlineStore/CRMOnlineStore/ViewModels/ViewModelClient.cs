@@ -9,7 +9,7 @@ using System.Windows;
 
 namespace CRMOnlineStore.ViewModels
 {
-    public class ViewClient : BindableBase
+    public class ViewModelClient : BindableBase
     {
         /// <summary>
         /// Контекст данных для работы с БД.
@@ -34,7 +34,7 @@ namespace CRMOnlineStore.ViewModels
 
         public DelegateCommand DeleteClient { get; set; }
 
-        public ViewClient()
+        public ViewModelClient()
         {
             Context = new OnlineStoreContext();
 

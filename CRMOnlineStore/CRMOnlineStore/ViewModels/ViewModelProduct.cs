@@ -11,7 +11,7 @@ using System.Windows.Controls;
 
 namespace CRMOnlineStore.ViewModels
 {
-    public class ViewProduct : BindableBase
+    public class ViewModelProduct : BindableBase
     {
         private OnlineStoreContext Context { get; set; }
         private CreateProductWindow CreateProductWindow { get; set; }
@@ -30,7 +30,7 @@ namespace CRMOnlineStore.ViewModels
         public DelegateCommand DeleteProduct { get; set; }
         
 
-        public ViewProduct()
+        public ViewModelProduct()
         {
             Context = new OnlineStoreContext();
 

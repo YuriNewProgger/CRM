@@ -20,7 +20,7 @@ namespace CRMOnlineStore.Views
     /// </summary>
     public partial class CreateProductWindow : Window
     {
-        public CreateProductWindow(ViewProduct viewProduct)
+        public CreateProductWindow(ViewModelProduct viewProduct)
         {
             InitializeComponent();
 

@@ -20,7 +20,7 @@ namespace CRMOnlineStore
     /// </summary>
     public partial class EditCurrentClient : Window
     {
-        public EditCurrentClient(ViewClient viewClient)
+        public EditCurrentClient(ViewModelClient viewClient)
         {
             InitializeComponent();
 

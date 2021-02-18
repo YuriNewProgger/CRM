@@ -87,7 +87,8 @@
     <Compile Include="ClientProduct.cs">
       <DependentUpon>Models.tt</DependentUpon>
     </Compile>
-    <Compile Include="ViewModels\ViewLists.cs" />
+    <Compile Include="ViewModels\ViewModelListClients.cs" />
+    <Compile Include="ViewModels\ViewModelListProduct.cs" />
     <Compile Include="Views\CreateClientWindow.xaml.cs">
       <DependentUpon>CreateClientWindow.xaml</DependentUpon>
     </Compile>
@@ -126,9 +127,9 @@
     <Compile Include="sysdiagram.cs">
       <DependentUpon>Models.tt</DependentUpon>
     </Compile>
-    <Compile Include="ViewModels\ViewClient.cs" />
+    <Compile Include="ViewModels\ViewModelClient.cs" />
     <Compile Include="ViewModels\ViewManager.cs" />
-    <Compile Include="ViewModels\ViewProduct.cs" />
+    <Compile Include="ViewModels\ViewModelProduct.cs" />
     <Compile Include="Views\EditCurrentProduct.xaml.cs">
       <DependentUpon>EditCurrentProduct.xaml</DependentUpon>
     </Compile>

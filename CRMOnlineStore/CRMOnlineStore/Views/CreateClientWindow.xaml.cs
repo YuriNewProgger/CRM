@@ -20,7 +20,7 @@ namespace CRMOnlineStore
     /// </summary>
     public partial class CreateClientWindow : Window
     {
-        public CreateClientWindow(ViewClient viewClient)
+        public CreateClientWindow(ViewModelClient viewClient)
         {
             InitializeComponent();
 

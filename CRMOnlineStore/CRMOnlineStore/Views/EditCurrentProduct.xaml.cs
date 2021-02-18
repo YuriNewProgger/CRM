@@ -20,7 +20,7 @@ namespace CRMOnlineStore.Views
     /// </summary>
     public partial class EditCurrentProduct : Window
     {
-        public EditCurrentProduct(ViewProduct viewProduct)
+        public EditCurrentProduct(ViewModelProduct viewProduct)
         {
             InitializeComponent();
 
