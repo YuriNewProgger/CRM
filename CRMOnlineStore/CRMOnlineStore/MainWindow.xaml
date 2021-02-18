@@ -143,8 +143,8 @@
                 </DataGrid>
 
                 <StackPanel Grid.Column="1" Width="150" Margin="10,0">
-                    <Button Style="{StaticResource btnCreate}" Command="{Binding CreateProduct}">Create</Button>
-                    <Button Style="{StaticResource btnEdit}" Command="{Binding EditProduct}">Edit</Button>
+                    <Button Style="{StaticResource btnCreate}" Command="{Binding ShowWinCreateProduct}">Create</Button>
+                    <Button Style="{StaticResource btnEdit}" Command="{Binding ShowWinEditProduct}">Edit</Button>
                     <Button Style="{StaticResource btnDel}" Command="{Binding DeleteProduct}">Delete</Button>
                 </StackPanel>
             </Grid>

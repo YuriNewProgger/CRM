@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CRMOnlineStore.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,43 +20,11 @@ namespace CRMOnlineStore.Views
     /// </summary>
     public partial class CreateProductWindow : Window
     {
-        public Product NewProduct { get; set; }
-
-        public CreateProductWindow(OnlineStoreContext context)
+        public CreateProductWindow(ViewProduct viewProduct)
         {
             InitializeComponent();
 
-            BoxSubscriptionType.ItemsSource = context.SubscriptionTypes.ToList();
-            BoxSubscriptionTerm.ItemsSource = context.SubscriptionTerms.ToList();
+            this.DataContext = viewProduct;
         }
-
-        private void Button_Create(object sender, RoutedEventArgs e)
-        {
-            if(string.IsNullOrEmpty(FieldName.Text) || string.IsNullOrEmpty(FieldPrice.Text) 
-                || BoxSubscriptionTerm is null || BoxSubscriptionType is null)
-            {
-                MessageBox.Show("Not all fields are filled!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                return;
-            }
-
-            NewProduct = new Product();
-            NewProduct.Name = FieldName.Text;
-
-            decimal price = 0;
-            if (decimal.TryParse(FieldPrice.Text, out price) == true)
-                NewProduct.Price = price;
-            else
-            {
-                MessageBox.Show("In the box price, not a number!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                return;
-            }
-
-            NewProduct.SubscriptionType = BoxSubscriptionType.SelectedItem as SubscriptionType;
-            NewProduct.SubscriptionTerm = BoxSubscriptionTerm.SelectedItem as SubscriptionTerm;
-
-            DialogResult = true;
-        }
-
-        private void Button_Cancel(object sender, RoutedEventArgs e) => DialogResult = false;
     }
 }

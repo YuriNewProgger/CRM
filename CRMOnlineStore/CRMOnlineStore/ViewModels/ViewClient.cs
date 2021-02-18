@@ -25,13 +25,12 @@ namespace CRMOnlineStore.ViewModels
         /// Делегаты для привязки команд.
         /// </summary>
         public DelegateCommand ShowWindowForCreateNewClient { get; set; }
-        public DelegateCommand ShowWindowForEditSelectedClient { get; set; }
         public DelegateCommand CreateNewClient { get; set; }
         public DelegateCommand CloseWinCreationNewClient { get; set; }
+
+        public DelegateCommand ShowWindowForEditSelectedClient { get; set; }
         public DelegateCommand EditSelectedClient { get; set; }
         public DelegateCommand CloseWinEditSelectedClient { get; set; }
-
-
 
         public DelegateCommand DeleteClient { get; set; }
 
@@ -40,12 +39,12 @@ namespace CRMOnlineStore.ViewModels
             Context = new OnlineStoreContext();
 
             ShowWindowForCreateNewClient = new DelegateCommand(() => this.ShowClientCreationWindow());
-            ShowWindowForEditSelectedClient = new DelegateCommand(() => this.ShowWindowEditSelectedClient());
             CreateNewClient = new DelegateCommand(() => this.CreateClient());
             CloseWinCreationNewClient = new DelegateCommand(() => this.CloseWindowCreationNewClient());
+
+            ShowWindowForEditSelectedClient = new DelegateCommand(() => this.ShowWindowEditSelectedClient());
             EditSelectedClient = new DelegateCommand(() => this.EditClient());
             CloseWinEditSelectedClient = new DelegateCommand(() => this.CloseWindowEditSelectedClient());
-
 
             DeleteClient = new DelegateCommand(() => this.DeleteSelectedClient());
 

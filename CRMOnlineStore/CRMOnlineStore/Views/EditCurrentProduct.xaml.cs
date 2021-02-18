@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CRMOnlineStore.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,69 +20,12 @@ namespace CRMOnlineStore.Views
     /// </summary>
     public partial class EditCurrentProduct : Window
     {
-        public Product Product { get; set; }
-
-        public EditCurrentProduct(Product product, OnlineStoreContext context)
+        public EditCurrentProduct(ViewProduct viewProduct)
         {
             InitializeComponent();
 
-            Product = product;
-
-            FieldName.Text = Product.Name;
-            FieldPrice.Text = Product.Price.ToString();
-
-            
-            BoxSubscriptionType.ItemsSource = context.SubscriptionTypes.ToList();
-            BoxSubscriptionTerm.ItemsSource = context.SubscriptionTerms.ToList();
-            
-
-            BoxSubscriptionType.SelectedItem = product.SubscriptionType;
-            BoxSubscriptionTerm.SelectedItem = product.SubscriptionTerm;
+            this.DataContext = viewProduct;
         }
 
-        private void Button_Save(object sender, RoutedEventArgs e)
-        {
-            if (string.IsNullOrEmpty(FieldName.Text) || string.IsNullOrEmpty(FieldPrice.Text)
-                || BoxSubscriptionTerm is null || BoxSubscriptionType is null)
-            {
-                MessageBox.Show("Not all fields are filled!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                return;
-            }
-
-            Product.Name = FieldName.Text;
-
-            decimal price = 0;
-            if (decimal.TryParse(FieldPrice.Text, out price) == true)
-                Product.Price = price;
-            else
-            {
-                MessageBox.Show("In the box price, not a number!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                return;
-            }
-
-            Product.SubscriptionType = BoxSubscriptionType.SelectedItem as SubscriptionType;
-
-            if (Product.SubscriptionType.Name == "License")
-            {
-                Product.SubscriptionTerm = null;
-                DialogResult = true;
-                return;
-            }
-
-            Product.SubscriptionTerm = BoxSubscriptionTerm.SelectedItem as SubscriptionTerm;
-
-            DialogResult = true;
-        }
-
-        private void Button_Cancel(object sender, RoutedEventArgs e) => DialogResult = false;
-
-        private void BoxSubscriptionType_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            if (BoxSubscriptionType.SelectedItem.ToString() == "License")
-            {
-                BoxSubscriptionTerm.SelectedIndex = -1;
-                return;
-            }
-        }
     }
 }

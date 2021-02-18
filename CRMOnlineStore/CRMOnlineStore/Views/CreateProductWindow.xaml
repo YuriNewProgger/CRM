@@ -23,30 +23,36 @@
 
             <TextBlock Text="Ente name new product:" Margin="10,20,10,5"/>
 
-            <TextBox Grid.Row="1" x:Name="FieldName"
+            <TextBox Grid.Row="1" Text="{Binding TitleProduct}"
                      VerticalAlignment="Center" Margin="10,10,10,5"/>
 
             <TextBlock Grid.Row="2" Text="Enter price:" Margin="10,20,10,5"/>
 
-            <TextBox Grid.Row="3" x:Name="FieldPrice"
+            <TextBox Grid.Row="3" x:Name="FieldPrice" Text="{Binding PriceProduct}"
                       VerticalAlignment="Center" Margin="10,10,10,5"/>
 
             <TextBlock Grid.Row="4" Text="Select subscription type:"
                        Margin="10,20,10,5"/>
 
-            <ComboBox Grid.Row="5" x:Name="BoxSubscriptionType"
+            <ComboBox Grid.Row="5" 
+                      ItemsSource="{Binding SubscriptionTypes}"
+                      SelectedItem="{Binding SubscriptionType}"
                       VerticalAlignment="Center" Margin="10,10,10,5"/>
 
             <TextBlock Grid.Row="6" Text="Select subscription term:"
                        Margin="10,20,10,5"/>
 
-            <ComboBox Grid.Row="7" x:Name="BoxSubscriptionTerm"
+            <ComboBox Grid.Row="7" 
+                      ItemsSource="{Binding SubscriptionTerms}"
+                      SelectedItem="{Binding SubscriptionTerm}"
                       VerticalAlignment="Center" Margin="10,10,10,5"/>
 
              <StackPanel Grid.Row="8" Orientation="Horizontal" 
                     HorizontalAlignment="Center">
-                    <Button Width="100" Height="30" Margin="10,10" Click="Button_Create">Create</Button>
-                    <Button Width="100" Height="30" Margin="10,10" Click="Button_Cancel">Cancel</Button>
+                    <Button Width="100" Height="30" Margin="10,10"
+                            Command="{Binding CreateNewProduct}">Create</Button>
+                    <Button Width="100" Height="30" Margin="10,10"
+                            Command="{Binding CloseWinCreateProduct}">Cancel</Button>
              </StackPanel>
         </Grid>
     </Grid>
