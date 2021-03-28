@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CRMOnlineStore"
         mc:Ignorable="d"
-        Title="CRM Online Store" Height="500" Width="500"
+        Title="CRM Online Store" Height="500" Width="600"
         WindowStartupLocation="CenterScreen">
     <Window.Resources>
         <Style x:Key="btnCreate" TargetType="Button">
@@ -157,9 +157,14 @@
                     <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
 
-                <DataGrid AutoGenerateColumns="True"
+                <DataGrid AutoGenerateColumns="False"
                           ItemsSource="{Binding DataForDataGrid}"
                           RowHeight="20" IsReadOnly="True" RowHeaderWidth="0">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="*"/>
+                        <DataGridTextColumn Header="Status" Binding="{Binding Status}" Width="*"/>
+                        <DataGridTextColumn Header="Manager" Binding="{Binding Manager}" Width="*"/>
+                    </DataGrid.Columns>
                 </DataGrid>
 
                 <StackPanel Grid.Column="1" Width="150" Margin="10,0">
@@ -182,9 +187,14 @@
                     <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
 
-                <DataGrid AutoGenerateColumns="True"
-                          ItemsSource="{Binding Products}"
+                <DataGrid ItemsSource="{Binding Products}" AutoGenerateColumns="False"
                           RowHeight="20" IsReadOnly="True" RowHeaderWidth="0">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="*"/>
+                        <DataGridTextColumn Header="Price" Binding="{Binding Price}" Width="*"/>
+                        <DataGridTextColumn Header="Sub.Type" Binding="{Binding SubscriptionType}" Width="*"/>
+                        <DataGridTextColumn Header="Sub.Term" Binding="{Binding SubscriptionTerm}" Width="*"/>
+                    </DataGrid.Columns>
                 </DataGrid>
 
                 <StackPanel Grid.Column="1" Width="150" Margin="10,0">

@@ -31,7 +31,7 @@ namespace CRMOnlineStore.ViewModels
             //Начальная инициализация списка с фильтрами.
             ListFilter = new List<string>
             {
-                "Clients", "Client by managers", "Client by status"
+                "Clients", "by Managers", "by Status"
             };
         }
 
@@ -82,10 +82,10 @@ namespace CRMOnlineStore.ViewModels
                 case "Clients":
                     DataForDataGrid = Context.Clients.ToList();
                     break;
-                case "Client by managers":
+                case "by Managers":
                     LoadClientByManager(); ;
                     break;
-                case "Client by status":
+                case "by Status":
                     LoadClientByStatus();
                     break;
                 default:

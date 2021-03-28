@@ -23,7 +23,7 @@ namespace CRMOnlineStore.ViewModels
 
             ListFilter = new List<string>
             {
-                "Products", "Product by Clients"
+                "Products", "by Clients"
             };
         }
 
@@ -62,7 +62,7 @@ namespace CRMOnlineStore.ViewModels
                 case "Products":
                     Products = Context.Products.ToList();
                     break;
-                case "Product by Clients":
+                case "by Clients":
                     LoadProductsByClient();
                     break;
             }
